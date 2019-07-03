@@ -45,7 +45,14 @@ class InteractionDiagram
   end
 
   def participants_displayed_from_left_to_right(first_participant, second_participant)
-    @participant_order.find_index(first_participant) < @participant_order.find_index(second_participant)
+    first_participant_index = @participant_order.find_index(first_participant)
+    second_participant_index = @participant_order.find_index(second_participant)
+
+    if first_participant_index && second_participant_index
+      first_participant_index < second_participant_index
+    else
+      true
+    end
   end
 
   def break_into_lines(value)
