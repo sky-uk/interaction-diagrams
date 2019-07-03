@@ -41,7 +41,7 @@ OptionParser.new do |o|
     configuration[:display_cookies] = false
   end
 
-  configuration[:participants] = YAML.load_file('participants.yml').map { |participant| Hash[participant.map { |k,v| [k.to_sym,v] }] } if File.exists? 'particiants.yml'
+  configuration[:participants] = YAML.load_file('participants.yml').map { |participant| Hash[participant.map { |k,v| [k.to_sym,v] }] } if File.exists? 'participants.yml'
 
   o.on('-r <participants file>', "Participants file if not in current directory") do |participants_yml|
     configuration[:participants] = YAML.load_file(participants_yml).map { |participant| Hash[participant.map { |k,v| [k.to_sym,v] }] }
